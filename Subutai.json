@@ -5,7 +5,7 @@
     "author": "https://github.com/Almansherov",
     "containers": [ {
         "hostname": "${webContainerName}",
-        "template": "apache",
+        "template": "debian-stretch",
         "peer-criteria": "HTTP-GROUP",
         "size": "SMALL",
         "port-mapping": [
