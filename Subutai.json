@@ -1,0 +1,33 @@
+{
+    "name": "joomla",
+    "description": "Subutai Blueprint for joomla installation",
+    "version": "1.0.0",
+    "author": "https://github.com/Almansherov",
+    "containers": [ {
+        "hostname": "www",
+        "template": "apache",
+        "peer-criteria": "HTTP-GROUP",
+        "size": "SMALL",
+        "port-mapping": [
+          {
+            "protocol": "http",
+            "domain": "mywebsite.envs.subutai.cloud",
+            "internal-port": "80",
+            "external-port": "80"
+          },
+          {
+            "protocol": "tcp",
+            "domain": "mywebsite.envs.subutai.cloud",
+            "internal-port": "22",
+            "external-port": "4040"
+          }
+        ]
+      }
+    ],
+    "peer-criteria": [ 
+      {
+        "name": "HTTP-GROUP",
+        "max-price": "25"
+      }
+    ]
+  }
