@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "author": "https://github.com/Almansherov",
     "containers": [ {
-        "hostname": "www",
+        "hostname": "${webContainerName}",
         "template": "apache",
         "peer-criteria": "HTTP-GROUP",
         "size": "SMALL",
@@ -14,17 +14,11 @@
             "domain": "mywebsite.envs.subutai.cloud",
             "internal-port": "80",
             "external-port": "80"
-          },
-          {
-            "protocol": "tcp",
-            "domain": "mywebsite.envs.subutai.cloud",
-            "internal-port": "22",
-            "external-port": "4040"
           }
         ]
       }
     ],
-    "peer-criteria": [ 
+    "peer-criteria": [
       {
         "name": "HTTP-GROUP",
         "max-price": "25"
@@ -47,11 +41,13 @@
                 ]
             }
         ]
+    },
+    "user-variables": {
+        "webContainerName": {
+            "description": "Enter the container's hostname",
+            "type": "string",
+            "default": "domain",
+            "validation": "[a-zA-Z0-9]+"
+        }
     }
 }
-        
-
-    
-
-
-
